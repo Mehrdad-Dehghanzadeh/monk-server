@@ -1,9 +1,11 @@
 /** @format */
 const express = require("express");
-const { readNode } = require("../controller/auth");
+const { login, logout, checkToken } = require("../controller/auth");
 
 const router = express.Router();
 
-router.post("/login", readNode);
+router.post("/login", login);
+
+router.post("/logout", checkToken, logout);
 
 module.exports = router;
