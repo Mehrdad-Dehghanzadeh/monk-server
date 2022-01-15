@@ -10,7 +10,8 @@ const filePath = path.resolve(__dirname, "../data/db.json");
 
 async function readNode(req, res) {
   const { tickets } = await conectDB();
-  res.status(200).json(tickets);
+  const bodyRes = { data: tickets, total: tickets.length };
+  res.status(200).json(bodyRes);
 }
 
 async function createNode(req, res, next) {
